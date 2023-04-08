@@ -24,6 +24,15 @@ export class User extends BaseEntity implements UserEntity {
   })
   createdAt: Date;
 
+  @Column()
+  pwdHash: string;
+
+  @Column({
+    nullable: true,
+    default: null,
+  })
+  currentTokenId: string | null;
+
   @ManyToMany((type) => Drink, (entity) => entity.users, { eager: true })
   @JoinTable()
   favDrinks: Drink[];
