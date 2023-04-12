@@ -15,10 +15,6 @@ export class DrinkController {
   getOneDrink(
     @Param('name') name: string,
   ): Promise<DrinkResponse | BadResponse> {
-    // try {
     return this.drinkService.getOneDrink(name);
-    // } catch (error) {
-    //   throw new Error('uuups');
-    // }
   }
 }

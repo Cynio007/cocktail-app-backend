@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserEntity } from 'src/interfaces/user';
+import { RegisterUser, UserEntity } from 'src/interfaces/user';
 import { Response } from 'express';
 import { RegisterDto } from './dto/register.dto';
 import { AuthGuard } from '@nestjs/passport';
@@ -22,20 +22,22 @@ export class UserController {
   constructor(@Inject(UserService) private userService: UserService) {}
 
   @Get('/myList')
-  @UseGuards(AuthGuard('jwt')) //@Param('id') id:string,
-  getMyDrinkList(@UserObj() user: User) {
-    console.log(user);
+  @UseGuards(AuthGuard('jwt'))
+  getMyDrinkList(@UserObj() user: User): Promise<DrinkEntity[]> {
     return this.userService.getMyDrinkList(user);
   }
 
   @Post('/register')
-  addUser(@Body() newUser: RegisterDto): any {
+  addUser(@Body() newUser: RegisterDto): Promise<RegisterUser> {
     return this.userService.addUser(newUser);
   }
 
   @Post('/addDrink')
   @UseGuards(AuthGuard('jwt'))
-  addDrink(@Body() drinkItem: DrinkEntity[], @UserObj() user: User): any {
+  addDrink(
+    @Body() drinkItem: DrinkEntity[],
+    @UserObj() user: User,
+  ): Promise<DrinkEntity> {
     return this.userService.addDrink(drinkItem, user);
   }
 

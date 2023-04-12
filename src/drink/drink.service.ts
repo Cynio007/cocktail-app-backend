@@ -3,15 +3,12 @@ import { BadResponse, DrinkResponse } from 'src/interfaces/drink';
 
 @Injectable()
 export class DrinkService {
-  //   private drinks: any;
-
   async getRandomDrink(): Promise<DrinkResponse> {
     const data = await fetch(
       'https://thecocktaildb.com/api/json/v1/1/random.php',
     );
     const response = (await data).json();
     const response2 = (await response).drinks[0];
-    // console.log(response);
     const ingredientsArr = await [];
     for (const key in response2) {
       if (key.includes('Ingredient') && response2[key]) {
@@ -26,8 +23,7 @@ export class DrinkService {
       ingredients: ingredientsArr,
       img: response2.strDrinkThumb,
     };
-    // console.log((await response).drinks[0]);
-    // return (await response).drinks[0];
+
     return result;
   }
 

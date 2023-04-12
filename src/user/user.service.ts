@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Drink } from 'src/drink/drink.entity';
-import { UserEntity } from 'src/interfaces/user';
+import {
+  AlreadyTakenEmailAdr,
+  RegisterUser,
+  UserEntity,
+  WrongEmailAdr,
+} from 'src/interfaces/user';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { RegisterDto } from './dto/register.dto';
 import { hashPwd } from 'src/utils/hash-pwd';
+import { DrinkEntity } from 'src/interfaces/drink';
 
 @Injectable()
 export class UserService {
@@ -18,15 +24,14 @@ export class UserService {
     @InjectRepository(Drink) private DrinkRepository: Repository<Drink>,
   ) {}
 
-  async getMyDrinkList(user: UserEntity): Promise<any> {
+  async getMyDrinkList(user: UserEntity): Promise<DrinkEntity[]> {
     const { id } = user;
-    console.log(id);
     const userDetails = await this.UserRepository.findOne(id);
-    // return userDetails[0].favDrinks;
+
     return userDetails.favDrinks;
   }
 
-  async addUser(newUser: RegisterDto): Promise<any> {
+  async addUser(newUser: RegisterDto): Promise<RegisterUser> {
     const newMember = new User();
     newMember.email = newUser.email;
     newMember.pwdHash = hashPwd(newUser.pwd);
@@ -50,10 +55,11 @@ export class UserService {
     return this.filter(newMember);
   }
 
-  async addDrink(drinkItem, user): Promise<any> {
+  async addDrink(drinkItem, user): Promise<DrinkEntity> {
     const newDrink = new Drink();
     const arrToStr = drinkItem.ingredients.join(',');
     drinkItem.ingredients = arrToStr;
+    drinkItem.id = Number(drinkItem.id);
 
     const findDrinkInDb = await this.DrinkRepository.find({
       id: drinkItem.id,
@@ -76,7 +82,7 @@ export class UserService {
     return drinkItem;
   }
 
-  async deleteDrink(id, user) {
+  async deleteDrink(id, user): Promise<DrinkEntity> {
     const idItem = (await user).favDrinks.findIndex(
       (el) => el.id === Number(id),
     );
