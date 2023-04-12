@@ -1,4 +1,45 @@
-<p align="center">
+# Cocktail-App: back-end
+
+<br/>
+Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pobrać i zapisać na swoim koncie losowo wybrany lub konketny (po wpisaniu w wyszukiwarke) drink. Każdy trunek posiada takie informacje jak: Id, nazwa, składniki, instrukcja przygotowania, info czy jest z alkoholem czy bez oraz link do zdjęcia pogladowego. Ze względu na brak czasu na skończenie front-endu zamieszczam gif z insomni z fukcjonalnością back-endu.
+
+![back-end gif](./images/gif02.gif)
+<br/>
+
+## Uruchomienie lokalnie
+
+Pobierz projekt
+
+```bash
+  git clone https://github.com/Cynio007/cocktail-app-backend.git
+```
+
+Przejdz do katalogu
+
+```bash
+  cd cocktail-app-backend
+```
+
+Zainstaluj niezbędne pliki
+
+```bash
+  npm install
+```
+
+Uruchom serwer
+
+```bash
+  npm start
+```
+
+<br/>
+## Technologie:
+
+- Nest
+- TypeScript
+- MySQL
+
+<!-- <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
@@ -22,7 +63,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<!-- ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -70,4 +111,4 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE). --> -->
