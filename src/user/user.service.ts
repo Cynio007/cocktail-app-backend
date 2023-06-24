@@ -57,7 +57,7 @@ export class UserService {
 
   async addDrink(drinkItem, user): Promise<DrinkEntity> {
     const newDrink = new Drink();
-    const arrToStr = drinkItem.ingredients.join(',');
+    const arrToStr = drinkItem.ingredients.join(', ');
     drinkItem.ingredients = arrToStr;
     drinkItem.id = Number(drinkItem.id);
 
