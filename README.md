@@ -1,6 +1,7 @@
 # Cocktail-App: back-end
 
 <br/>
+
 Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pobrać i zapisać na swoim koncie losowo wybrany lub konketny (po wpisaniu w wyszukiwarke) drink. Każdy trunek posiada takie informacje jak: Nazwa, składniki, instrukcja przygotowania, info czy jest z alkoholem czy bez oraz zdjęcie pogladowege. Poniżej zamieszczam gif z insomni z fukcjonalnością back-endu.
 (Link do front-end'u: https://github.com/Cynio007/cocktail-app-frontend)
 
@@ -8,6 +9,7 @@ Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pob
 <br/>
 
 ## Uruchomienie lokalnie
+
 
 Pobierz projekt
 
