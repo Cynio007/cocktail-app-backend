@@ -26,7 +26,7 @@ export class UserService {
 
   async getMyDrinkList(user: UserEntity): Promise<DrinkEntity[]> {
     const { id } = user;
-    const userDetails = await this.UserRepository.findOne(id);
+    const userDetails = await this.UserRepository.findOne({ where: { id } });
 
     return userDetails.favDrinks;
   }
@@ -37,7 +37,9 @@ export class UserService {
     newMember.pwdHash = hashPwd(newUser.pwd);
 
     const findByEmail = await this.UserRepository.find({
-      email: newUser.email,
+      where: {
+        email: newUser.email,
+      },
     });
     console.log(await findByEmail);
     if ((await findByEmail).length !== 0) {
@@ -62,7 +64,9 @@ export class UserService {
     drinkItem.id = Number(drinkItem.id);
 
     const findDrinkInDb = await this.DrinkRepository.find({
-      id: drinkItem.id,
+      where: {
+        id: drinkItem.id,
+      },
     });
 
     if ((await findDrinkInDb).length === 0) {
