@@ -7,6 +7,7 @@ async function bootstrap() {
   // app.enableCors({
   //   origin: 'http://localhost:3000', //dodaje możliwośc łączenia z backendem z innej domeny. Zmienić na właściwy, gdy nie używamy lokalnie na swoim PC
   // });
+  app.setGlobalPrefix('api');
   app.enableCors({
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
