@@ -5,7 +5,7 @@ import { BadResponse, DrinkResponse } from 'src/interfaces/drink';
 export class DrinkService {
   async getRandomDrink(): Promise<DrinkResponse> {
     const data = await fetch(
-      'https://thecocktaildb.com/api/json/v1/1/random.php',
+      'https://www.thecocktaildb.com/api/json/v2/9973533/random.php',
     );
     const response = (await data).json();
     const response2 = (await response).drinks[0];
@@ -29,7 +29,7 @@ export class DrinkService {
 
   async getOneDrink(name: string): Promise<DrinkResponse | BadResponse> {
     const data = await fetch(
-      `https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`,
+      `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${name}`,
     );
 
     const response = (await data).json();
