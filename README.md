@@ -3,13 +3,22 @@
 <br/>
 
 Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pobrać i zapisać na swoim koncie losowo wybrany lub konketny (po wpisaniu w wyszukiwarke) drink. Każdy trunek posiada takie informacje jak: Nazwa, składniki, instrukcja przygotowania, info czy jest z alkoholem czy bez oraz zdjęcie pogladowege. Poniżej zamieszczam gif z insomni z fukcjonalnością back-endu.
-(Link do front-end'u: https://github.com/Cynio007/cocktail-app-frontend)
+(Link do front-end'u: https://github.com/Cynio007/cocktail-app-frontend), Live Demo: 'https://cocktailapp.networkmanager.info'
 
 ![back-end gif](./images/gif02.gif)
 <br/>
 
 ## Uruchomienie lokalnie
 
+Stwórz baze danych MySQL:
+
+```bash
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '',
+      database: 'cocktails',
+```
 
 Pobierz projekt
 
