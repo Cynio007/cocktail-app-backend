@@ -10,7 +10,7 @@ Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pob
 
 ## Uruchomienie lokalnie
 
-Stwórz baze danych MySQL:
+Stwórz bazę danych MySQL:
 
 ```bash
       host: 'localhost',
